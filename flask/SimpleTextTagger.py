@@ -112,7 +112,7 @@ corpus_words, class_words = pre_process_text(path)
 
 
 @app.route('/text_tag', methods=['GET'])
-def spell_check():
+def text_tag():
     query = request.args.get('q')
     return classify(query)[0]
 

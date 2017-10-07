@@ -178,11 +178,14 @@ def spell_check():
       return query 
 
 @app.route('/text_tag', methods=['GET'])
-def spell_check():
+def text_tag():
     query = request.args.get('q')
     return classify(query)[0]
 
-
+@app.route('/text_tag', methods=['PUT'])
+def text_tag():
+    query = request.args.get('q')
+    return classify(query)[0]
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 33507))
