@@ -1,0 +1,19 @@
+greeting:how are you
+greeting:how is your day
+greeting:good day
+greeting:how is it going today
+balance:how much balance do i have?
+balance:show me my balance
+balance:how much money do i have?
+balance:how much money do i have in my bank account?
+transfer:send money to my friend
+transfer:send some money to my mother
+transfer:transfer money to bob
+transfer:pay my uncle 100rs
+transfer:pay the shopkeerper 80rs
+transfer:pay dad 500rs
+remittence:what is the exchange rate from inr to usd 
+remittence:send money from india to usa
+remittence:transfer money from uk to india
+remittence:send money to my friend in usa
+remittence:send money to my mother in uk
