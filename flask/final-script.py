@@ -183,9 +183,12 @@ def text_tag():
     return classify(query)[0]
 
 @app.route('/text_tag', methods=['PUT'])
-def text_tag():
-    query = request.args.get('q')
-    return classify(query)[0]
+def text_tag_input():
+    data = request.data
+    f = open("data/train.txt",'a')
+    f.write(data);
+    f.close()
+    print("Successful")
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 33507))
