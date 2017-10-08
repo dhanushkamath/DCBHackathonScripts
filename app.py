@@ -1,9 +1,10 @@
 import os
 from flask import Flask, request
-import requests
 app = Flask(__name__)
 
 import nltk
+nltk.download('punkt')
+
 from nltk.corpus import stopwords
 from nltk.stem.lancaster import LancasterStemmer
 
@@ -168,14 +169,20 @@ global corpus_words
 global class_words
 corpus_words, class_words = pre_process_text(path)
 
+@app.route('/')
+def index():
+	return 'Hello world'
 
 @app.route('/spell_check', methods=['GET'])
 def spell_check():
     query = request.args.get('q')
-    if correction(query) != query:
-      return correction(query)
-    else:
-      return query 
+    correct_s =''
+    for word in query.split():
+        if correction(word)!=word:
+            correct_s=correct_s+''+str(correction(word))
+        else:
+            correct_s=correct_s+' '+str(word)
+    return correct_s
 
 @app.route('/text_tag', methods=['GET'])
 def text_tag():
@@ -191,5 +198,5 @@ def text_tag_input():
     print("Successful")
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 33507))
-    app.run(host="0.0.0.0", port=port, debug=True)
+	app.run()
+
